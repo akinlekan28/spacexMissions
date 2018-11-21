@@ -1,0 +1,24 @@
+{
+  "name": "spacexmissions",
+  "version": "1.0.0",
+  "description": "app that list spaceX missions",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "keywords": [
+    "reactjs",
+    "apollo-graphql",
+    "apollo-client",
+    "expressjs"
+  ],
+  "author": "akintola olalekan",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2"
+  }
+}
