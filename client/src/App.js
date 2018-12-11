@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ApolloClient from "apollo-boost";
+import Lunches from './components/Launches';
 import { ApolloProvider } from "react-apollo";
 import logo from "./logo.jpg";
 
@@ -22,6 +23,7 @@ class App extends Component {
               margin: "auto"
             }}
           />
+          <Lunches />
         </div>
       </ApolloProvider>
     );

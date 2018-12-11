@@ -2,14 +2,14 @@ const axios = require('axios');
 const {GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLBoolean, GraphQLList, GraphQLSchema} = require('graphql');
 
 //Lunch Type
-const LunchType = new GraphQLObjectType({
-    name: 'Lunch',
+const LaunchType = new GraphQLObjectType({
+    name: 'Launch',
     fields: () => ({
         flight_number: {type: GraphQLInt},
         mission_name: {type: GraphQLString},
-        lunch_year: {type: GraphQLString},
-        lunch_date_local: {type: GraphQLString},
-        lunch_success: {type: GraphQLBoolean},
+        launch_year: {type: GraphQLString},
+        launch_date_local: {type: GraphQLString},
+        launch_success: {type: GraphQLBoolean},
         rocket: {type: RocketType}
     })
 });
@@ -28,15 +28,15 @@ const RocketType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        lunches: {
-            type: new GraphQLList(LunchType),
+        launches: {
+            type: new GraphQLList(LaunchType),
             resolve(parent, args){
                 return axios.get('https://api.spacexdata.com/v3/launches/')
                 .then(res => res.data);
             }
         },
-        lunch: {
-            type: LunchType,
+        launch: {
+            type: LaunchType,
             args: {
                 flight_number: {type: GraphQLInt}
             },
