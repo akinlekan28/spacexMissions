@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ApolloClient from "apollo-boost";
-import Lunches from './components/Launches';
+import Launches from './components/Launches';
+import Launch from './components/Launch';
 import { ApolloProvider } from "react-apollo";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import logo from "./logo.jpg";
 
 const client = new ApolloClient({
@@ -12,7 +14,8 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <div className="App">
+       <Router>
+       <div className="App">
           <img
             src={logo}
             alt="spaceX"
@@ -23,8 +26,10 @@ class App extends Component {
               margin: "auto"
             }}
           />
-          <Lunches />
+          <Route exact path="/" component={Launches} />
+          <Route exact path="/launch/:flight_number" component={Launch} />
         </div>
+       </Router>
       </ApolloProvider>
     );
   }
